@@ -19,13 +19,14 @@ public class Pharmacy {
 
     @Override
     public String toString() {
+        int currency = 0x20B4;
         return "Pharmacy{" +
-                "drugName='" + drugName + '\'' +
-                ", company='" + company + '\'' +
-                ", unitPrice=" + unitPrice +
-                ", inPackage=" + inPackage +
-                ", pharmacyNumber=" + pharmacyNumber +
-                ", shelfLife=" + shelfLife +
+                "drugName: '" + drugName + '\'' +
+                ", company: '" + company + '\'' +
+                ", unitPrice: "+ (char)currency + unitPrice +
+                ", inPackage: " + inPackage + "pcs." +
+                ", pharmacyNumber: " + pharmacyNumber +
+                ", shelfLife: " + shelfLife + "years" +
                 '}';
     }
 
