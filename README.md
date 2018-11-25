@@ -1,4 +1,5 @@
-# Lab7
+# Lab8
 <ul>
-<li>Creating a database "Pharmacy"</li>
+  <li>Creating a database "Pharmacy"</li>
+  <li>Added date</li>
 </ul>
