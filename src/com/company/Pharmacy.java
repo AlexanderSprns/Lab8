@@ -1,5 +1,8 @@
 package com.company;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Pharmacy {
     private String drugName;
     private String company;
@@ -7,14 +10,18 @@ public class Pharmacy {
     private int inPackage;
     private int pharmacyNumber;
     private int shelfLife;
+    private String date;
 
-    public Pharmacy(String drugName, String company, double unitPrice, int inPackage, int pharmacyNumber, int shelfLife) {
+    private Date dateOfDelivery = new Date(date);
+
+    public Pharmacy(String drugName, String company, double unitPrice, int inPackage, int pharmacyNumber, int shelfLife, String date) {
         this.drugName = drugName;
         this.company = company;
         setUnitPrice(unitPrice);
         setInPackage(inPackage);
         setPharmacyNumber(pharmacyNumber);
         setShelfLife(shelfLife);
+        setDate(date);
     }
 
     @Override
@@ -23,10 +30,11 @@ public class Pharmacy {
         return "Pharmacy{" +
                 "drugName: '" + drugName + '\'' +
                 ", company: '" + company + '\'' +
-                ", unitPrice: "+ (char)currency + unitPrice +
+                ", unitPrice: " + (char) currency + unitPrice +
                 ", inPackage: " + inPackage + "pcs." +
                 ", pharmacyNumber: " + pharmacyNumber +
                 ", shelfLife: " + shelfLife + "years" +
+                ", date: " + getDate() +
                 '}';
     }
 
@@ -46,7 +54,7 @@ public class Pharmacy {
         this.company = company;
     }
 
-    public double getUnitPrice() { return unitPrice;}
+    public double getUnitPrice() { return unitPrice; }
 
     public void setUnitPrice(double unitPrice) {
         this.unitPrice = unitPrice <= 0. ? -1. : unitPrice;
@@ -74,5 +82,14 @@ public class Pharmacy {
 
     public void setShelfLife(int shelfLife) {
         this.shelfLife = shelfLife <= 0 ? -1 : shelfLife;
+    }
+
+    public String getDate() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        return dateFormat.format(dateOfDelivery);
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }
